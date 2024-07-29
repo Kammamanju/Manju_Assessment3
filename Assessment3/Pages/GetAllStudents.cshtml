@@ -1,0 +1,68 @@
+﻿@page
+@model Assessment3.Pages.GetAllStudentsModel
+@{
+}
+<div>
+    <form method="post">
+        <table class=" table">
+            <h1>Register a Student</h1>
+            <tr>
+                <td>ID</td>
+                <td><input type="number" asp-for="@Model.student.Id" /></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" asp-for="@Model.student.Name" /></td>
+            </tr>
+            <tr>
+                <td>Qualification</td>
+                <td><input type="text" asp-for="@Model.student.qualification" /></td>
+            </tr>
+            <tr>
+                <td>Skill</td>
+                <td>
+                    <label for="skill"></label>
+                    <select>
+                        <option value="Python">Python</option>
+                        <option value="C#">C#</option>
+                        <option value="C">C</option>
+                        <option value="SQL">SQL</option>
+                        <option value="Java">Java</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Add" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <table class=" container">
+        <thead>
+            <h1>List All Students:</h1>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Qualification</td>
+                <td>Skill</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @{
+                    foreach(var item in Model.list)
+                    {
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.qualification</td>
+                        <td>@item.skill</td>
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+
+</div>
